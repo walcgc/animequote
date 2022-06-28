@@ -8,10 +8,11 @@ import retrofit2.Response
 
 class AnimechanAPIFunctions {
 
-    fun getRandomQuote() {
+    fun getRandomQuote(): AnimechanQuoteObject? {
 
         val call: Call<AnimechanQuoteObject> =
             AnimechanAPIClient.getAnimeChanData.getRandomAnimeQuote()
+        var responseObject: AnimechanQuoteObject? = null
 
         call.enqueue(object : Callback<AnimechanQuoteObject> {
             override fun onFailure(call: Call<AnimechanQuoteObject>, t: Throwable) {
@@ -25,9 +26,11 @@ class AnimechanAPIFunctions {
             ) {
                 var response: AnimechanQuoteObject = response.body()!!
                 Log.d("API CALL - random quote", response.anime)
-
+                responseObject = response
             }
         })
+
+        return responseObject
 
     }
 

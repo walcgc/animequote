@@ -43,7 +43,7 @@ interface AnimechanAPI {
     @GET("quotes/anime")
     fun getQuoteByTitle(@Query("title") title: String):
             Call<List<AnimechanQuoteObject>>
-    
+
     @GET("quotes/character")
     fun getQuoteByCharacter(@Query("name") limit: Int):
             Call<List<AnimechanQuoteObject>>
