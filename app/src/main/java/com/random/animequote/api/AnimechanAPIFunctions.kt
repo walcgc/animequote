@@ -1,24 +1,37 @@
-package com.random.animequote
+package com.random.animequote.api
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
-import com.random.animequote.api.AnimechanAPIClient
 import com.random.animequote.model.AnimechanQuoteObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        test()
+class AnimechanAPIFunctions {
+
+    fun getRandomQuote() {
+
+        val call: Call<AnimechanQuoteObject> =
+            AnimechanAPIClient.getAnimeChanData.getRandomAnimeQuote()
+
+        call.enqueue(object : Callback<AnimechanQuoteObject> {
+            override fun onFailure(call: Call<AnimechanQuoteObject>, t: Throwable) {
+                Log.d("API CALL - random quote", "Failed API Call")
+
+            }
+
+            override fun onResponse(
+                call: Call<AnimechanQuoteObject>,
+                response: Response<AnimechanQuoteObject>
+            ) {
+                var response: AnimechanQuoteObject = response.body()!!
+                Log.d("API CALL - random quote", response.anime)
+
+            }
+        })
+
     }
 
-    private fun test() {
+    fun getTenRandomQuote() {
 
         val call: Call<List<AnimechanQuoteObject>> =
             AnimechanAPIClient.getAnimeChanData.getTenRandomQuotes()
@@ -43,6 +56,4 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
-
-
 }

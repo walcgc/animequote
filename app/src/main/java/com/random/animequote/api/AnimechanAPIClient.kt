@@ -9,6 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 object AnimechanAPIClient {
     private const val BASE_URL = "https://animechan.vercel.app/api/"
@@ -35,4 +36,15 @@ object AnimechanAPIClient {
 interface AnimechanAPI {
     @GET("random")
     fun getRandomAnimeQuote(): Call<AnimechanQuoteObject>
+
+    @GET("quotes")
+    fun getTenRandomQuotes(): Call<List<AnimechanQuoteObject>>
+
+    @GET("quotes/anime")
+    fun getQuoteByTitle(@Query("title") title: String):
+            Call<List<AnimechanQuoteObject>>
+    
+    @GET("quotes/character")
+    fun getQuoteByCharacter(@Query("name") limit: Int):
+            Call<List<AnimechanQuoteObject>>
 }
