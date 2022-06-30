@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_ani_quote_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_single_random_quote.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/layout/fragment_r_a_q.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_random_anime_quote.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_saved_quote.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_saved_quotes.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.1" />
       </map>
     </option>
   </component>
