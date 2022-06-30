@@ -1,22 +1,25 @@
 package com.random.animequote.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.random.animequote.api.AnimechanAPIClient
-import com.random.animequote.api.AnimechanAPIFunctions
-import com.random.animequote.databinding.ActivityMainBinding
+import com.random.animequote.api.WebSearchClient
 import com.random.animequote.databinding.ActivitySingleRandomQuoteBinding
 import com.random.animequote.model.AnimechanQuoteObject
+import com.random.animequote.model.ImageQueryObject
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class SingleRandomQuote : AppCompatActivity() {
 
     private lateinit var binding: ActivitySingleRandomQuoteBinding
     private lateinit var randomQuote: AnimechanQuoteObject
+    private lateinit var imgLink: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,8 +57,38 @@ class SingleRandomQuote : AppCompatActivity() {
                 binding.character.setText(response.character)
                 binding.quote.setText(response.quote)
 
+                var query = "${response.anime} - ${response.character}"
+                var q = query.replace(" ","%20")
+                getImage(q)
+
             }
         })
+    }
+
+    fun getImage(q:String){
+
+        val call: Call<ImageQueryObject> =
+            WebSearchClient.getImageQueryObject.getImage(q,"1","10","true")
+
+        call.enqueue(object : Callback<ImageQueryObject> {
+            override fun onFailure(call: Call<ImageQueryObject>, t: Throwable) {
+                Log.d("API CALL - image", "Failed API Call")
+
+            }
+
+            override fun onResponse(
+                call: Call<ImageQueryObject>,
+                response: Response<ImageQueryObject>
+            ) {
+                var response: ImageQueryObject = response.body()!!
+                Log.d("API CALL - image quote", response.results.toString())
+                Log.d("API CALL - image quote", response.results?.size.toString())
+                Log.d("API CALL - image quote", "meep")
+
+
+            }
+        })
+
     }
 
 }
