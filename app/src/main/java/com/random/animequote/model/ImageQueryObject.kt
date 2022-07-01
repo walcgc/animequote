@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class ImageQueryObject (
 
-    val results: List<ImagesResults>?
+    @SerializedName("value")
+    val results: Array<ImagesResults>
 
 )
 

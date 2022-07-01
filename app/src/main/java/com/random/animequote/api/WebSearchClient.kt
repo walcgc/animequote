@@ -15,7 +15,7 @@ object WebSearchClient {
 
 
     private const val BASE_URL =
-        "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/"
+        "https://contextualwebsearch-websearch-v1.p.rapidapi.com/"
     val getImageQueryObject: WebSearchImageAPI
         get() {
             val gson = GsonBuilder().setLenient().create()
@@ -41,13 +41,13 @@ interface WebSearchImageAPI {
         "X-RapidAPI-Key: eb026538d4msh041e26a7e6e7ebbp17a967jsn5267b6b76972",
         "X-RapidAPI-Host: contextualwebsearch-websearch-v1.p.rapidapi.com"
     )
-
-    @GET("ImageSearchAPI")
-    fun getImage(
+    @GET("api/Search/ImageSearchAPI")
+    fun queryImage(
         @Query("q") q: String,
-        @Query("pageNumber") safe: String,
-        @Query("pageSize") tbm: String,
-        @Query("autoCorrect") num: String,
+        @Query("pageNumber") pageNumber: String,
+        @Query("pageSize") pageSize: String,
+        @Query("autoCorrect") autoCorrect: String,
+        @Query("safeSearch") safeSearch: String,
     ):
             Call<ImageQueryObject>
 
