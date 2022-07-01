@@ -1,15 +1,18 @@
 package com.random.animequote.ui
 
+import android.annotation.SuppressLint
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.random.animequote.R
 import com.random.animequote.api.AnimechanAPIClient
 import com.random.animequote.api.WebSearchClient
 import com.random.animequote.databinding.ActivitySingleRandomQuoteBinding
+import com.random.animequote.db.DBHelper
 import com.random.animequote.model.AnimechanQuoteObject
 import com.random.animequote.model.ImageQueryObject
 import com.squareup.picasso.Picasso
@@ -20,15 +23,23 @@ import java.io.IOException
 import java.net.URL
 
 
+import android.widget.TextView
+
+
+
+
+
 class SingleRandomQuote : AppCompatActivity() {
 
     private lateinit var binding: ActivitySingleRandomQuoteBinding
     private lateinit var randomQuote: AnimechanQuoteObject
-    private lateinit var imgLink: String
+    private var imgLink: String = ""
     private lateinit var imageView: ImageView
+    private lateinit var textViewTest: TextView
 
 
 
+    @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySingleRandomQuoteBinding.inflate(layoutInflater)
@@ -39,6 +50,52 @@ class SingleRandomQuote : AppCompatActivity() {
 
         binding.generateSingleQuoteButton.setOnClickListener {
             getRandomAnimeQuote()
+        }
+
+        binding.saveAnime.setOnClickListener{
+
+            val db = DBHelper(this, null)
+
+            // creating variables for values
+            // in name and age edit texts
+            var anime = findViewById<TextView>(R.id.anime).text.toString()
+            var character = findViewById<TextView>(R.id.character).text.toString()
+            var quote = findViewById<TextView>(R.id.quote).text.toString()
+            var imgurl = imgLink
+
+            var textViewTest = findViewById<TextView>(R.id.character)
+            val test1 = textViewTest.text.toString()
+            Toast.makeText(this, character, Toast.LENGTH_SHORT).show()
+
+            // calling method to add
+            // name to our database
+            db.addQuote(anime,character,quote,imgurl)
+
+            // Toast to message on the screen
+            Toast.makeText(this, "Quote added to database", Toast.LENGTH_LONG).show()
+        }
+
+        binding.viewSaved.setOnClickListener{
+            val db = DBHelper(this, null)
+
+            val cursor = db.getSavedQuotes()
+
+            // moving the cursor to first position and
+            // appending value in the text view
+
+            cursor!!.moveToFirst()
+            var character = cursor.getString(cursor.getColumnIndex(DBHelper.CHARACTER_COL))
+            Toast.makeText(this, character + " added to database", Toast.LENGTH_SHORT).show()
+
+            while(cursor.moveToNext()){
+                character = cursor.getString(cursor.getColumnIndex(DBHelper.CHARACTER_COL))
+                Toast.makeText(this, character + " added to database", Toast.LENGTH_SHORT).show()
+            }
+
+
+
+            // at last we close our cursor
+            cursor.close()
         }
 
     }
@@ -100,20 +157,8 @@ class SingleRandomQuote : AppCompatActivity() {
                 Log.d("API CALL - image quote", "meep")
                 Log.w("2.0 getFeed > Full json res wrapped in gson => ", Gson().toJson(response))
 
+                imgLink = response.results.get(0).url
                 Picasso.get().load(response.results.get(0).url).into(imageView);
-
-                /*
-                try {
-                    var imgurl = URL(response.results.get(0).thumbnail)
-                    var bitmap = BitmapFactory.decodeStream(imgurl.openConnection().getInputStream())
-                    binding.animeImage.setImageBitmap(bitmap)
-                } catch (e: IOException) {
-                    println(e)
-                }
-
-                 */
-
-
 
 
             }
