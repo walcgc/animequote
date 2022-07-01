@@ -13,8 +13,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     override fun onCreate(db: SQLiteDatabase) {
         // below is a sqlite query, where column names
         // along with their data types is given
-        val delQuery = ("drop table if exists" + TABLE_NAME)
-        db.execSQL(delQuery)
+
 
         val query = ("CREATE TABLE " + TABLE_NAME + " ("
                 + ID_COL + " INTEGER PRIMARY KEY, " +
@@ -32,6 +31,11 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // this method is to check if table already exists
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME)
         onCreate(db)
+    }
+
+    fun delDB(db: SQLiteDatabase){
+        val delQuery = ("drop table if exists" + TABLE_NAME)
+        db.execSQL(delQuery)
     }
 
     // This method is for adding data in our database

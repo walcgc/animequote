@@ -48,13 +48,15 @@ class SingleRandomQuote : AppCompatActivity() {
 
         getRandomAnimeQuote()
 
+        val db = DBHelper(this, null)
+        db.delDB()
         binding.generateSingleQuoteButton.setOnClickListener {
             getRandomAnimeQuote()
         }
 
         binding.saveAnime.setOnClickListener{
 
-            val db = DBHelper(this, null)
+
 
             // creating variables for values
             // in name and age edit texts
@@ -76,7 +78,7 @@ class SingleRandomQuote : AppCompatActivity() {
         }
 
         binding.viewSaved.setOnClickListener{
-            val db = DBHelper(this, null)
+
 
             val cursor = db.getSavedQuotes()
 
