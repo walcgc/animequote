@@ -43,7 +43,7 @@ class SingleRandomQuote : AppCompatActivity() {
         getRandomAnimeQuote()
 
         val db = DBHelper(this, null)
-        db.delTable()
+        //db.delTable()
 
         binding.move.setOnClickListener{
             val i = Intent(applicationContext, RecyclerActivity::class.java)

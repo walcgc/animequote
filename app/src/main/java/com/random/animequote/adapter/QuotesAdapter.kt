@@ -1,15 +1,19 @@
 package com.random.animequote.adapter
 
 import android.content.Context
-import android.icu.number.NumberRangeFormatter.with
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.random.animequote.R
+import com.random.animequote.ui.ShowSavedQuote
 import com.squareup.picasso.Picasso
+
 
 class QuotesAdapter(
     context: Context,
@@ -20,6 +24,7 @@ class QuotesAdapter(
     imgurl: ArrayList<String>
 ) : RecyclerView.Adapter<QuotesAdapter.ViewHolder>() {
 
+    var context = context
     var id = id
     var anime = anime
     var character = character
@@ -63,6 +68,17 @@ class QuotesAdapter(
             characterTitle = itemView.findViewById(R.id.item_detail)
             quoteID = itemView.findViewById(R.id.quote_id)
             imageThumbnail = itemView.findViewById(R.id.item_image)
+
+            itemView.setOnClickListener{ v: View ->
+                val position: Int = absoluteAdapterPosition
+                //change to id and not position?
+                //Toast.makeText(itemView.context, "Clicked on item - ${position + 1}", Toast.LENGTH_SHORT).show()
+                //id.get(position)
+                val intent = Intent(context, ShowSavedQuote::class.java)
+                intent.putExtra("CARD_ID", id.get(position))
+                context.startActivity(intent)
+
+            }
 
         }
     }
