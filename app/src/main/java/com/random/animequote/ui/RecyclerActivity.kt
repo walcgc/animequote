@@ -18,6 +18,7 @@ class RecyclerActivity : AppCompatActivity() {
 
     val db = DBHelper(this, null)
     val quotes = ArrayList<Quote>()
+    val id = ArrayList<String>()
     val anime = ArrayList<String>()
     val character = ArrayList<String>()
     val quote = ArrayList<String>()
@@ -33,7 +34,7 @@ class RecyclerActivity : AppCompatActivity() {
         savedList.layoutManager = layoutManager
 
         storeQuotesInArray()
-        adapter = QuotesAdapter(this, anime, character, quote, imgurl)
+        adapter = QuotesAdapter(this, id, anime, character, quote, imgurl)
 
         savedList.adapter = adapter
     }
@@ -51,6 +52,7 @@ class RecyclerActivity : AppCompatActivity() {
                     )
 
                     quotes.add(newQuote)
+                    id.add(cursor.getString(0))
                     anime.add(cursor.getString(1))
                     character.add(cursor.getString(2))
                     quote.add(cursor.getString(3))
