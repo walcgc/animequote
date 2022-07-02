@@ -1,10 +1,12 @@
 package com.random.animequote.ui
 
+
 import android.annotation.SuppressLint
-import android.graphics.BitmapFactory
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -19,14 +21,6 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.IOException
-import java.net.URL
-
-
-import android.widget.TextView
-
-
-
 
 
 class SingleRandomQuote : AppCompatActivity() {
@@ -49,7 +43,13 @@ class SingleRandomQuote : AppCompatActivity() {
         getRandomAnimeQuote()
 
         val db = DBHelper(this, null)
-        db.delDB()
+        db.delTable()
+
+        binding.move.setOnClickListener{
+            val i = Intent(applicationContext, RecyclerActivity::class.java)
+            startActivity(i)
+        }
+
         binding.generateSingleQuoteButton.setOnClickListener {
             getRandomAnimeQuote()
         }

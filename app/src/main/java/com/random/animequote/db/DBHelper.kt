@@ -33,9 +33,10 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         onCreate(db)
     }
 
-    fun delDB(db: SQLiteDatabase){
-        val delQuery = ("drop table if exists" + TABLE_NAME)
-        db.execSQL(delQuery)
+    fun delTable(){
+
+        val db = this.writableDatabase
+        db.execSQL("delete from "+ TABLE_NAME);
     }
 
     // This method is for adding data in our database
