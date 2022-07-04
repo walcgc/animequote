@@ -77,6 +77,7 @@ class SingleRandomQuote : AppCompatActivity() {
             Toast.makeText(this, "Quote added to database", Toast.LENGTH_LONG).show()
         }
 
+        /*
         binding.viewSaved.setOnClickListener{
 
 
@@ -99,6 +100,7 @@ class SingleRandomQuote : AppCompatActivity() {
             // at last we close our cursor
             cursor.close()
         }
+        */
 
     }
 

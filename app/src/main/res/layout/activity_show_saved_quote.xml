@@ -6,25 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.ShowSavedQuote">
 
-    <Button
-        android:id="@+id/move"
-        android:layout_width="92dp"
-        android:layout_height="38dp"
-        android:layout_gravity="center"
-        android:text="move"
-        android:textColor="#ffffff"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Single Random Quote"
+        android:text="Random Anime Quote"
+        android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
@@ -37,39 +23,45 @@
         android:id="@+id/anime"
         android:layout_width="260dp"
         android:layout_height="32dp"
-        android:text="TextView"
         android:gravity="center_vertical|center_horizontal"
+        android:text="TextView"
+        android:typeface="monospace"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
+        app:layout_constraintTop_toBottomOf="@+id/animeImage"
+        app:layout_constraintVertical_bias="0.081" />
 
     <TextView
         android:id="@+id/character"
         android:layout_width="250dp"
         android:layout_height="36dp"
-        android:text="TextView"
         android:gravity="center_vertical|center_horizontal"
+        android:text="TextView"
+        android:typeface="monospace"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528" />
+        app:layout_constraintTop_toBottomOf="@+id/anime"
+        app:layout_constraintVertical_bias="0.094" />
 
     <TextView
         android:id="@+id/quote"
         android:layout_width="347dp"
         android:layout_height="190dp"
-        android:text="TextView"
         android:gravity="center_vertical|center_horizontal"
+        android:text="TextView"
+        android:typeface="monospace"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
+        app:layout_constraintTop_toBottomOf="@+id/character"
+        app:layout_constraintVertical_bias="0.328" />
 
     <ImageView
         android:id="@+id/animeImage"
