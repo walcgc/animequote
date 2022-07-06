@@ -34,7 +34,7 @@ class ShowSavedQuote : AppCompatActivity() {
 
         var id = intent.getStringExtra("CARD_ID")
 
-        Toast.makeText(this, id + "test", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, id + "test", Toast.LENGTH_SHORT).show()
 
         val db = DBHelper(this, null)
         var cursor: Cursor
@@ -49,7 +49,7 @@ class ShowSavedQuote : AppCompatActivity() {
         var imgurl = cursor.getString(cursor.getColumnIndex(DBHelper.IMG_COL))
 
 
-        Toast.makeText(this, character, Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, character, Toast.LENGTH_SHORT).show()
 
         // at last we close our cursor
         cursor.close()
