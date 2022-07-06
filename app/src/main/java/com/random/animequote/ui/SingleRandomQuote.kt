@@ -67,7 +67,7 @@ class SingleRandomQuote : AppCompatActivity() {
 
             var textViewTest = findViewById<TextView>(R.id.character)
             val test1 = textViewTest.text.toString()
-            Toast.makeText(this, character, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, character, Toast.LENGTH_SHORT).show()
 
             // calling method to add
             // name to our database
