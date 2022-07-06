@@ -4,12 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:background="#1A1125"
     tools:context=".ui.ShowSavedQuote">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical|center_horizontal"
         android:text="Random Anime Quote"
+        android:textColor="@color/white"
+        android:textSize="25dp"
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,60 +26,276 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.047" />
 
-
-    <TextView
-        android:id="@+id/anime"
-        android:layout_width="260dp"
-        android:layout_height="32dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="TextView"
-        android:typeface="monospace"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/animeImage"
-        app:layout_constraintVertical_bias="0.081" />
-
-    <TextView
-        android:id="@+id/character"
-        android:layout_width="250dp"
-        android:layout_height="36dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="TextView"
-        android:typeface="monospace"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anime"
-        app:layout_constraintVertical_bias="0.094" />
-
-    <TextView
-        android:id="@+id/quote"
-        android:layout_width="347dp"
-        android:layout_height="190dp"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="TextView"
-        android:typeface="monospace"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/character"
-        app:layout_constraintVertical_bias="0.328" />
-
     <ImageView
         android:id="@+id/animeImage"
-        android:layout_width="292dp"
+        android:layout_width="match_parent"
         android:layout_height="178dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141" />
+        app:layout_constraintVertical_bias="0.193" />
+
+
+    <RelativeLayout
+        android:layout_width="373dp"
+        android:layout_height="429dp"
+        android:layout_marginTop="224dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animeImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/anime"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="32dp"-->
+        <!--            android:gravity="center_vertical|center_horizontal"-->
+        <!--            android:text="Anime"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:typeface="monospace"-->
+        <!--            app:autoSizeTextType="uniform"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.496"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            -->
+        <!--            app:layout_constraintVertical_bias="0.081" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/character"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="36dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:gravity="center_vertical|center_horizontal"-->
+        <!--            android:text="Character"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:typeface="monospace"-->
+        <!--            app:autoSizeTextType="uniform"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.496"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/anime"-->
+        <!--            app:layout_constraintVertical_bias="0.094" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/quote"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="36dp"-->
+        <!--            android:gravity="center_vertical|center_horizontal"-->
+        <!--            android:text="Quote"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:typeface="monospace"-->
+        <!--            app:autoSizeTextType="uniform"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintHorizontal_bias="0.0"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/character"-->
+        <!--            app:layout_constraintVertical_bias="0.138" />-->
+
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingTop="20dp"
+                        android:text="ANIME "
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/anime"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:text="Anime "
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="CHARACTER "
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/character"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:text="Character "
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingTop="5dp"
+                        android:text="QUOTE: "
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                    <TextView
+                        android:id="@+id/quote"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.4"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="5dp"
+                        android:text="Quote "
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="normal"
+                        android:typeface="monospace"
+                        app:autoSizeTextType="uniform" />
+
+                </TableRow>
+
+            </TableLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
